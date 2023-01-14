@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//vistas
+Route::view('prod','productos');
+//apis
+Route::apiResource('ApiProducto','App\Http\Controllers\ProductoController');
