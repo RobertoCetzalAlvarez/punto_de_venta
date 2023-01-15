@@ -13,6 +13,7 @@ class Producto extends Model
     protected $primaryKey='id_producto';
     //se especifican relaciones
     //public $with=['Tipo','Id_proveedor'];
+    public $with=['Tipo','Id_provedor'];
 
     public $incrementing=false;
     public $timestamps=false;
@@ -21,11 +22,16 @@ class Producto extends Model
         'Precio-venta',
         'Precio-compra',
         'Tipo',
-        'Id_proveedor'
+        'Id_provedor'
     ];
-    /*public function tipo(){
+    public function tipo(){
 
-        return $this->belongsTo(Comida::class,'id_comida','id_comida');
+        return $this->belongsTo(Tipo::class,'Tipo','id_tipo');
 
-    }*/
+    }
+   public function id_provedor(){
+
+        return $this->belongsTo(Provedor::class,'Id_provedor','Id_provedor');
+
+    }
 }

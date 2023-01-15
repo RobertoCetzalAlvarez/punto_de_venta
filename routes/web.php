@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::view('prod','productos');
 //apis
 Route::apiResource('ApiProducto','App\Http\Controllers\ProductoController');
+Route::apiResource('ApiDetalle','App\Http\Controllers\DetalleventaController');
