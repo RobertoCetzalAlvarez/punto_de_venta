@@ -14,14 +14,24 @@ class Detalleventa extends Model
     protected $primaryKey='id';
     //se especifican relaciones
     //public $with=['Tipo','Id_proveedor'];
-    //public $with=['Tipo','Id_provedor'];
+    public $with=['Id_producto','folio'];
     public $incrementing=false;
     public $timestamps=false;
     protected $fillable=[
-        'Id_producto',
         'cantidad',
         'precio',
         'total',
+        'Id_producto',
         'folio'
     ];
+    public function id_producto(){
+
+        return $this->belongsTo(Producto::class,'Id_producto','Id_producto');
+
+    }
+    public function folio(){
+
+        return $this->belongsTo(Venta::class,'folio','folio');
+
+    }
 }

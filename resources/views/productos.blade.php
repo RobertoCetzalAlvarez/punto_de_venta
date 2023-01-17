@@ -54,19 +54,73 @@
 
 
 
-<section class="content" >
-        <div class="container-fluid">
-            <!-- Info boxes -->
-            <!--inicio de row-->
-            <div class="row">
+<!--INICIO DE LA TABLA-->
+<div class="main-body">
+				<div class="col-xl-12" >
+				<div class="col-md-12" align="left">
+					<div class="card card-warning"> 
+						<div class="card-header">
+							<h3>STOCK DE PRODUCTOS</h3>
+								<li class="nav-item d-none d-lg-flex">
+									
+									<span class="btn btn-primary" @click="mostrarModal()">+ Crear nuevo</span>
+									<button class="btn btn-success" @click="MostrarModalProducto()" type="button" >productos por agotarse</button>
+									<button class="btn btn-info" @click="MostrarModalTipo()" type="button" >añadir tipos</button>
+								</li>
+							<div class="col-md-6">
+							<input type="text" placeholder="Escriba el nombre del producto" class="form-control" v-model="buscar">
+							</div>
+						</div>
 
+						<div class="card-body">
+							
+								<!-- INICIO DE LA TABLA -->
+					<table class="table table-bordered table-striped" >
+						<thead>
+							<th hidden="">ID SKU</th>
+							<th style="background: #FFFF00">NOMBRE</th>
+							<th style="background: #FFFF00" hidden="">FOTOGRAFIA</th>
+							<th style="background: #FFFF00">PRECIO</th>
+							<th style="background: #FFFF00">CANTIDAD</th>
+							<th style="background: #FFFF00">TIPO</th>
+							<th style="background: #FFFF00">ACCIONES</th>
 
-                                
-            </div>
-                            <!-- /.row -->
-        </div><!--/. container-fluid -->
-      <!--/. container-fluid -->
-</section>
+						</thead>
+
+						<tbody >
+							<tr v-for="producto in filtroProducto">
+								<td hidden="">@{{producto.sku}}</td>
+								<td>@{{producto.nombre}}</td>
+								<!--<td><img v-bind:src=producto.foto width="50" height="60"></td>-->
+								<!--<td ><img href="prods/@{{producto.foto}}" alt=""></td>-->
+								<td>@{{producto.precio}}</td>
+								<td>@{{producto.cantidad}}</td>
+								<td>@{{producto.tipo.tipo}}</td>
+								<td>
+									<button class="btn btn-sm" @click="editandoProducto(producto.sku)">
+										<i class="fas fa-pen"></i>
+									</button>
+
+									<button class="btn btn-sm" @click="eliminarProducto(producto.sku)">
+										<i class="fas fa-trash"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- FIN DE LA TABLA -->
+
+						</div>
+					
+						
+					</div>
+				</div>  
+				<!-- FIN DE COL-MD-12 -->
+					
+				</div>
+				
+			</div><!--fin de row-->
+			<!--fin del cuadro de la tabla-->
                         
 
 </div><!--Fin de vue-->
